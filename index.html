@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recarga de Celular</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #ticket {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px dashed #333;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Recarga de Celular</h2>
+    <form id="recargaForm">
+        <label for="compania">Compañía:</label>
+        <select id="compania" required>
+            <option value="">Selecciona una compañía</option>
+            <option value="viva">viva</option>
+            <option value="Claro">Claro</option>
+            <option value="altice">altice</option>
+            <option value="tricom">tricom</option>
+        </select>
+
+        <label for="numero">Número de celular:</label>
+        <input type="text" id="numero" placeholder="Número" required maxlength="11" pattern="[0-9]{10}">
+
+        <label for="monto">Monto de recarga (30 a 5000):</label>
+        <input type="number" id="monto" placeholder="Monto entre 30 y 5000" required min="30" max="5000">
+
+        <button type="button" onclick="realizarRecarga()">Recargar</button>
+    </form>
+
+    <div id="ticket">
+        <h3>Ticket de Recarga</h3>
+        <p><strong>Compañía:</strong> <span id="ticketCompania"></span></p>
+        <p><strong>Número:</strong> <span id="ticketNumero"></span></p>
+        <p><strong>Monto:</strong> $<span id="ticketMonto"></span></p>
+        <button onclick="imprimirTicket()">Imprimir Ticket</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
